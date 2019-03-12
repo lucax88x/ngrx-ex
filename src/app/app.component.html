@@ -1,0 +1,43 @@
+<div style="text-align:center">
+  <h2>Todos</h2>
+  <app-new-todo (createTodo)="onAddTodo($event)"></app-new-todo>
+  <app-todo-list
+    [todos]="todos | async"
+    (completedTodo)="onCompletedTodo($event)"
+    (deletedTodo)="onDeletedTodo($event)"
+    (editTodo)="onEditTodo($event)"
+    (updateTodo)="onUpdateTodo($event)"
+  ></app-todo-list>
+  <mat-radio-group
+    *ngIf="(todos | async)?.length"
+    class="todo-filter-group"
+    [(ngModel)]="SelectedFilter"
+  >
+    <mat-radio-button
+      class="todo-filter-button"
+      [value]="'All'"
+      (click)="onFilterAll()"
+      checked="true"
+    >
+      All
+    </mat-radio-button>
+    <mat-radio-button
+      class="todo-filter-button"
+      [value]="'Pending'"
+      (click)="onFilterPending()"
+    >
+      Pending
+    </mat-radio-button>
+    <mat-radio-button
+      class="todo-filter-button"
+      [value]="'Complete'"
+      (click)="onFilterComplete()"
+    >
+      Complete
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<app-complete-todo-list
+  [todos]="completedTodos | async"
+></app-complete-todo-list>

@@ -1,0 +1,10 @@
+<!--<div>
+  <input type="text" [(ngModel)]="newTodo" placeholder="Add a todo" (keyup.enter)="onSaveTodo();">
+  <button mat-raised-button color="primary" (click)="onSaveTodo();">Add</button>
+</div>-->
+<form class="new-todo-form">
+  <mat-form-field class="new-todo-full-width">
+    <input matInput type="text"  name="new-todo" placeholder="Add a todo" [(ngModel)]="newTodo" (keyup.enter)="onSaveTodo();">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onSaveTodo();">Add</button>
+</form>

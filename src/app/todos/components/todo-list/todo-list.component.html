@@ -1,0 +1,10 @@
+<ul class="todos-list">
+    <app-todo-list-item 
+      *ngFor="let todo of todos"
+      [todo]="todo"
+      (compeletedTodo)="onCompletedTodo($event)"
+      (deletedTodo)="onDeletedTodo($event)"
+      (editTodo)="onEditTodo($event)"
+      (updateTodo)="onUpdateTodo($event)"
+    ></app-todo-list-item>
+</ul>
